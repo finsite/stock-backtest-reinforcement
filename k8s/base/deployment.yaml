@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-backtest-reinforcement
+  labels:
+    app: stock-backtest-reinforcement
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-backtest-reinforcement
+  template:
+    metadata:
+      labels:
+        app: stock-backtest-reinforcement
+    spec:
+      containers:
+      - name: stock-backtest-reinforcement
+        image: stock-backtest-reinforcement:latest
+        ports:
+        - containerPort: 8080
