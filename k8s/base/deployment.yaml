@@ -16,7 +16,7 @@ spec:
         app: stock-backtest-reinforcement
     spec:
       containers:
-      - name: stock-backtest-reinforcement
-        image: stock-backtest-reinforcement:latest
-        ports:
-        - containerPort: 8080
+        - name: stock-backtest-reinforcement
+          image: stock-backtest-reinforcement:latest
+          ports:
+            - containerPort: 8080
