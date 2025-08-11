@@ -1,5 +1,4 @@
-"""
-Processor module for stock-backtest-reinforcement signal generation.
+"""Processor module for stock-backtest-reinforcement signal generation.
 
 Validates incoming messages and simulates RL policy action selection
 based on current market state inputs.
@@ -15,8 +14,7 @@ logger = setup_logger(__name__)
 
 
 def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
-    """
-    Validate the incoming raw message against the expected schema.
+    """Validate the incoming raw message against the expected schema.
 
     Args:
         message (dict[str, Any]): Raw input message.
@@ -26,6 +24,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
     Raises:
         ValueError: If the input format is invalid.
+
     """
     logger.debug("🔍 Validating message schema...")
     if not validate_message_schema(message):
@@ -35,14 +34,14 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
 
 def generate_rl_signal(message: ValidatedMessage) -> dict[str, Any]:
-    """
-    Simulate an RL policy choosing an action based on market state.
+    """Simulate an RL policy choosing an action based on market state.
 
     Args:
         message (ValidatedMessage): The validated input data.
 
     Returns:
         dict[str, Any]: Message enriched with action and confidence.
+
     """
     symbol = message.get("symbol", "UNKNOWN")
     logger.info("🧠 Generating RL signal for %s", symbol)
